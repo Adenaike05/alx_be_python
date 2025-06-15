@@ -3,7 +3,6 @@ from simple_calculator import SimpleCalculator
 
 class TestSimpleCalculator(unittest.TestCase):
 
-
     def setUp(self):
       
         self.calc = SimpleCalculator()
@@ -11,10 +10,10 @@ class TestSimpleCalculator(unittest.TestCase):
 
     def tearDown(self):
        
-        self.calc = None # Explicitly dereference the calculator
+        self.calc = None 
         print(f"Tearing down calculator after test: {self._testMethodName}") # Optional
 
-    # --- Test methods for 'add' ---
+    
     def test_add_positive_numbers(self):
         self.assertEqual(self.calc.add(2, 3), 5)
         self.assertEqual(self.calc.add(100, 200), 300)
@@ -106,6 +105,5 @@ class TestSimpleCalculator(unittest.TestCase):
         self.assertAlmostEqual(self.calc.divide(7.0, 2.0), 3.5)
         self.assertAlmostEqual(self.calc.divide(1.0, 3.0), 0.3333333333333333)
 
-# This allows running the tests directly from the script
 if __name__ == '__main__':
     unittest.main(verbosity=2) # verbosity=2 shows more detailed test results
