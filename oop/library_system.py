@@ -12,7 +12,7 @@ class EBook(Book):
         self.file_size = file_size
     
     def __str__(self):
-        return f"{self.title} by {self.author}, file size: {self.file_size}kB"
+        return f"Ebook: {self.title} by {self.author}, file size: {self.file_size}kB"
 
 class PrintBook(Book):
     def __init__(self, title, author, page_count):  # updated param name
@@ -37,7 +37,6 @@ class Library:
 
         if not self.books:
             print("The library is currently empty.")
-            return
-       
+            return   
         for book in self.books:
             print(book)
