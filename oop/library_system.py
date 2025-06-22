@@ -22,20 +22,22 @@ class PrintBook(Book):
     def __str__(self):
         return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
-    def __repr__(self):
-        return f"PrintBook('{self.title}', '{self.author}', {self.page_count})"
-
 class Library:
     def __init__(self):
         self.books = []
     
-    def add_book(self, book):
+    def add_book(self, book: Book):
+        
         if isinstance(book, Book):
             self.books.append(book)
-            print(f"Added '{book.title}' to the library.")
         else:
             print(f"Error: Cannot add non-Book object to the library: {book}")
     
     def list_books(self):
+
+        if not self.books:
+            print("The library is currently empty.")
+            return
+       
         for book in self.books:
             print(book)
