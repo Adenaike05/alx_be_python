@@ -3,7 +3,7 @@ class Book:
         self.title = title
         self.author = author        
     
-    def __str__(self):  
+    def get_info(self):  
         return f"Book: {self.title} by {self.author}"
     
 class EBook(Book):
@@ -11,7 +11,7 @@ class EBook(Book):
         super().__init__(title, author)
         self.file_size = file_size
     
-    def __str__(self):
+    def get_info(self):
         return f"Ebook: {self.title} by {self.author}, file size: {self.file_size}kB"
 
 class PrintBook(Book):
@@ -19,24 +19,17 @@ class PrintBook(Book):
         super().__init__(title, author)
         self.page_count = page_count  # updated attribute name
 
-    def __str__(self):
+    def get_info(self):
         return f"PrintBook: {self.title} by {self.author}, Page Count: {self.page_count}"
 
 class Library:
     def __init__(self):
         self.books = []
     
-    def add_book(self, book: Book):
-        
-        if isinstance(book, Book):
-            self.books.append(book)
-        else:
-            print(f"Error: Cannot add non-Book object to the library: {book}")
-    
-    def list_books(self):
+    def add_book(self, book):
+         self.books.append(book)
 
-        if not self.books:
-            print("The library is currently empty.")
-            return   
+    def list_books(self):
         for book in self.books:
-            print(book)
+            print(book.get_info())
+        
